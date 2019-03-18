@@ -31,13 +31,13 @@ systemctl enable xrdp-sesman
 
 # Configure the installed XRDP ini files.
 # use vsock transport.
-sed -i_orig -e 's/use_vsock=false/use_vsock=true/g' /etc/xrdp/xrdp.ini
+#sed -i_orig -e 's/use_vsock=false/use_vsock=true/g' /etc/xrdp/xrdp.ini
 # use rdp security.
 sed -i_orig -e 's/security_layer=negotiate/security_layer=rdp/g' /etc/xrdp/xrdp.ini
 # remove encryption validation.
 sed -i_orig -e 's/crypt_level=high/crypt_level=none/g' /etc/xrdp/xrdp.ini
 # disable bitmap compression since its local its much faster
-sed -i_orig -e 's/bitmap_compression=true/bitmap_compression=false/g' /etc/xrdp/xrdp.ini
+#sed -i_orig -e 's/bitmap_compression=true/bitmap_compression=false/g' /etc/xrdp/xrdp.ini
 #
 # sed -n -e 's/max_bpp=32/max_bpp=24/g' /etc/xrdp/xrdp.ini
 
@@ -51,9 +51,9 @@ echo "allowed_users=anybody" > /etc/X11/Xwrapper.config
 
 
 #Ensure hv_sock gets loaded
-if [ ! -e /etc/modules-load.d/hv_sock.conf ]; then
-	echo "hv_sock" > /etc/modules-load.d/hv_sock.conf
-fi
+#if [ ! -e /etc/modules-load.d/hv_sock.conf ]; then
+#	echo "hv_sock" > /etc/modules-load.d/hv_sock.conf
+#fi
 
 # Configure the policy xrdp session
 cat > /etc/polkit-1/rules.d/02-allow-colord.rules <<EOF
