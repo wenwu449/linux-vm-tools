@@ -39,7 +39,7 @@ fi
 #apt install -y linux-cloud-tools-virtual${HWE}
 
 # Install the xrdp service so we have the auto start behavior
-apt install -y xrdp
+apt install -y xrdp xserver-xorg-core xorgxrdp xserver-xorg-legacy
 
 systemctl stop xrdp
 systemctl stop xrdp-sesman
@@ -75,11 +75,11 @@ sed -i -e 's/FuseMountName=thinclient_drives/FuseMountName=shared-drives/g' /etc
 sed -i_orig -e 's/allowed_users=console/allowed_users=anybody/g' /etc/X11/Xwrapper.config
 
 # Blacklist the vmw module
-if [ ! -e /etc/modprobe.d/blacklist_vmw_vsock_vmci_transport.conf ]; then
-cat >> /etc/modprobe.d/blacklist_vmw_vsock_vmci_transport.conf <<EOF
-blacklist vmw_vsock_vmci_transport
-EOF
-fi
+#if [ ! -e /etc/modprobe.d/blacklist_vmw_vsock_vmci_transport.conf ]; then
+#cat >> /etc/modprobe.d/blacklist_vmw_vsock_vmci_transport.conf <<EOF
+#blacklist vmw_vsock_vmci_transport
+#EOF
+#fi
 
 #Ensure hv_sock gets loaded
 #if [ ! -e /etc/modules-load.d/hv_sock.conf ]; then
