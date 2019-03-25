@@ -35,11 +35,11 @@ fi
 #
 
 # Install hv_kvp utils
-#apt install -y linux-tools-virtual${HWE}
-#apt install -y linux-cloud-tools-virtual${HWE}
+apt install -y linux-tools-virtual${HWE}
+apt install -y linux-cloud-tools-virtual${HWE}
 
 # Install the xrdp service so we have the auto start behavior
-apt install -y xrdp xserver-xorg-core xorgxrdp xserver-xorg-legacy
+apt install -y xrdp xserver-xorg-core xorgxrdp
 
 systemctl stop xrdp
 systemctl stop xrdp-sesman
